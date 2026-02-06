@@ -17,8 +17,8 @@ export default function BookPage() {
 			<p className='text-gray-700'>{book?.description}</p>
 			<p className='text-gray-700'>Год: {book?.year}</p>
 			<p className='text-gray-700'>
-				<Link to={`/library/authors/${book?.authorId}`} className='text-blue-600 hover:underline'>
-					{book?.author}
+				<Link to={`/library/authors/${book?.author.id}`} className='text-blue-600 hover:underline'>
+					{book?.author.name}
 				</Link>
 			</p>
 			<p className='text-gray-500'>
