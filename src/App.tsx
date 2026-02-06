@@ -5,6 +5,8 @@ import LibraryLayout from './shared/layout/LibraryLayout';
 import BooksPage from './features/library/books/BooksPage';
 import AuthorsPage from './features/library/authors/AuthorsPage';
 import NotFound from './features/errors/NotFound';
+import AddBookPage from './features/library/books/AddBookPage';
+import BookPage from './features/library/books/BookPage';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
 		{
 			path: "books",
 			element: <BooksPage />
+		},
+		{
+			path: "books/:id",
+			element: <BookPage />
+		},
+		{
+			path: "add-book",
+			element: <AddBookPage />
 		},
 		{
 			path: "authors",
