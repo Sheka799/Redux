@@ -7,9 +7,27 @@ export default function LibraryLayout() {
 	const location = useLocation()
 	const navigation = [
 		{ name: 'Главная', href: '/' },
-		{ name: 'Книги', href: '/library/books' },
-		{ name: 'Авторы', href: '/library/authors' }
+		{
+			name: 'Книги',
+			href: '/library/books',
+			matchPaths: ['/library/books', '/library/books/', '/library/add-book']
+		},
+		{
+			name: 'Авторы',
+			href: '/library/authors',
+			matchPaths: ['/library/authors', '/library/authors/']
+		}
 	]
+
+	const isActiveLink = (href: string, matchPaths?: string[]) => {
+		const currentPath = location.pathname
+		
+		if (matchPaths) {
+			return matchPaths.some(path => currentPath.startsWith(path))
+		}
+		
+		return currentPath === href
+	}
 
 	return (
 		<div className='flex h-screen'>
@@ -39,7 +57,7 @@ export default function LibraryLayout() {
 				<nav className='flex-1 overflow-y-auto py-4'>
 					<div className='space-y-1 px-3'>
 						{navigation.map(item => {
-							const isActive = location.pathname === item.href
+							const isActive = isActiveLink(item.href, item.matchPaths)
 
 							return (
 								<NavLink

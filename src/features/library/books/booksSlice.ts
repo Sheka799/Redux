@@ -7,6 +7,7 @@ const initialState: IBook[] = [
         title: "Мастер и Маргарита",
         description: "«Мастер и Маргарита» — это не просто книга, а культурный феномен, который продолжает удивлять читателей спустя почти век после написания. Михаил Булгаков создал произведение, которое ломает границы между реальностью и мистикой, сатирой и философией, любовью и предательством.",
         author: "Михаил Булгаков",
+        authorId: "1",
         year: 1967,
         price: 1000
     },
@@ -15,12 +16,13 @@ const initialState: IBook[] = [
         title: "Война и мир",
         description: "«Война и мир» — это эпическое произведение Льва Толстого, которое охватывает широкий спектр тем, от войны и мира до любви и судьбы. Роман погружает читателя в сложный мир русской аристократии и крестьянства, исследуя человеческую природу и исторические события.",
         author: "Лев Толстой",
+        authorId: "2",
         year: 1869,
         price: 1500
     }
 ];
 
-const bookSlice = createSlice({
+const booksSlice = createSlice({
     name: "books",
     initialState,
     reducers: {
@@ -30,5 +32,5 @@ const bookSlice = createSlice({
     },
 });
 
-export const { addBook } = bookSlice.actions;
-export default bookSlice.reducer;
+export const { addBook } = booksSlice.actions;
+export default booksSlice.reducer;
