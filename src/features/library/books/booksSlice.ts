@@ -1,4 +1,4 @@
-import { createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { IBook } from "./book.types";
 
 const initialState: IBook[] = [
@@ -34,10 +34,10 @@ const booksSlice = createSlice({
             reducer(state, action: PayloadAction<IBook>) {
                 state.push(action.payload);
             },
-            prepare({ title, description, author, year, price }: Omit<IBook, "id">) {
+            prepare({ id, title, description, author, year, price }: IBook) {
                 return {
                     payload: {
-                        id: nanoid(),
+                        id,
                         title,
                         description,
                         author,

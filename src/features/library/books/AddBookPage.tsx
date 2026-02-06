@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import type { IAuthorState } from '../authors/author.types'
 import { addBook } from './booksSlice'
 import { useNavigate } from 'react-router-dom'
+import { nanoid } from '@reduxjs/toolkit'
+import { addBookToAuthor } from '../authors/authorsSlice'
+
 export default function AddBookPage() {
 	const [author, setAuthor] = useState({
 		name: 'Выберите автора',
@@ -21,8 +24,11 @@ export default function AddBookPage() {
 
 	const onSaveBook = () => {
 		if (author && title && description && year && price) {
+			const bookId: string = nanoid()
+
 			dispatch(
 				addBook({
+					id: bookId,
 					title,
 					description,
 					year,
@@ -30,8 +36,10 @@ export default function AddBookPage() {
 					author: author
 				})
 			)
-			
-			setAuthor({name: 'Выберите автора', id: '0'})
+
+			dispatch(addBookToAuthor({ authorId: author.id, bookId }))
+
+			setAuthor({ name: 'Выберите автора', id: '0' })
 			setTitle('')
 			setDescription('')
 			setYear(null)
