@@ -27,6 +27,10 @@ export default function EditBookPage() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
+	if (!book) {
+		return <div>Книга не найдена</div>
+	}
+
 	const onSaveBook = () => {
 		if (author.id !== '0' && title && description && year && price) {
 			dispatch(

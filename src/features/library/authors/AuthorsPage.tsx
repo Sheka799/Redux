@@ -8,9 +8,15 @@ export default function AuthorsPage() {
 	return (
 		<div>
 			<h1 className='text-center text-4xl font-bold text-gray-900'>Авторы</h1>
-			<h2 className='text-center text-xl text-gray-700'>
+			<h2 className='mb-4 text-center text-xl text-gray-700'>
 				Здесь вы можете найти всех авторов библиотеки
 			</h2>
+			<Link
+				to='/library/add-author'
+				className='rounded-md bg-lime-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-lime-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500'
+			>
+				Добавить автора
+			</Link>
 			{authors && authors.length > 0 ? (
 				<div className='mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3'>
 					{authors.map(author => (

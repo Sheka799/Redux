@@ -23,6 +23,14 @@ export default function AuthorPage() {
 		<div className='flex flex-col gap-3'>
 			<h1 className='text-4xl font-bold text-gray-900'>{author?.name}</h1>
 			<p className='text-gray-700'>{author?.description}</p>
+			<div className='mt-3'>
+				<Link
+					to={`/library/edit-author/${author?.id}`}
+					className='cursor-pointer rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500'
+				>
+					Редактировать автора
+				</Link>
+			</div>
 			{books && books.length > 0 ? (
 				<div>
 					<h2 className='mt-4 mb-2 text-2xl font-semibold text-gray-800'>Книги автора:</h2>

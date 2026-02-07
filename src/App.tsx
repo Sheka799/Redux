@@ -9,6 +9,8 @@ import AddBookPage from './features/library/books/AddBookPage';
 import BookPage from './features/library/books/BookPage';
 import AuthorPage from './features/library/authors/AuthorPage';
 import EditBookPage from './features/library/books/EditBookPage';
+import AddAuthorPage from './features/library/authors/AddAuthorPage';
+import EditAuthorPage from './features/library/authors/EditAuthorPage';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
 		{
 			path: "authors/:id",
 			element: <AuthorPage />
+		},
+		{
+			path: "add-author",
+			element: <AddAuthorPage />
+		},
+		{
+			path: "edit-author/:id",
+			element: <EditAuthorPage />
 		}
 	]
   },

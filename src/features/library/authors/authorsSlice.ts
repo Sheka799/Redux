@@ -22,6 +22,17 @@ const authorsSlice = createSlice({
 	name: 'authors',
 	initialState,
 	reducers: {
+		addAuthor(state, action: PayloadAction<IAuthor>) {
+			state.push(action.payload)
+		},
+		editAuthor(state, action: PayloadAction<IAuthor>) {
+			const { id, name, description } = action.payload
+			const currentAuthor = state.find(author => author.id === id)
+			if (currentAuthor) {
+				currentAuthor.name = name
+				currentAuthor.description = description
+			}
+		},
 		addBookToAuthor(state, action: PayloadAction<{ authorId: string; bookId: string }>) {
 			const { authorId, bookId } = action.payload
 			const author = state.find(author => author.id === authorId)
@@ -39,5 +50,5 @@ const authorsSlice = createSlice({
 	}
 })
 
-export const { addBookToAuthor, removeBookFromAuthor } = authorsSlice.actions
+export const { addAuthor, editAuthor, addBookToAuthor, removeBookFromAuthor } = authorsSlice.actions
 export default authorsSlice.reducer

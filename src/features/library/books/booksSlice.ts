@@ -59,9 +59,17 @@ const booksSlice = createSlice({
 				currentBook.year = year
 				currentBook.price = price
 			}
+		},
+		editBooksByAuthorId(state, action: PayloadAction<{ authorId: string; authorName: string }>) {
+			const { authorId, authorName } = action.payload
+			state.forEach(book => {
+				if (book.author.id === authorId) {
+					book.author.name = authorName
+				}
+			})
 		}
 	}
 })
 
-export const { addBook, editBook } = booksSlice.actions
+export const { addBook, editBook, editBooksByAuthorId } = booksSlice.actions
 export default booksSlice.reducer

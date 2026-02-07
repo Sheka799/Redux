@@ -15,7 +15,7 @@ export default function LibraryLayout() {
 		{
 			name: 'Авторы',
 			href: '/library/authors',
-			matchPaths: ['/library/authors', '/library/authors/']
+			matchPaths: ['/library/authors', '/library/authors/', '/library/add-author', '/library/edit-author']
 		}
 	]
 
