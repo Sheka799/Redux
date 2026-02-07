@@ -10,7 +10,7 @@ export default function LibraryLayout() {
 		{
 			name: 'Книги',
 			href: '/library/books',
-			matchPaths: ['/library/books', '/library/books/', '/library/add-book']
+			matchPaths: ['/library/books', '/library/books/', '/library/add-book', '/library/edit-book']
 		},
 		{
 			name: 'Авторы',

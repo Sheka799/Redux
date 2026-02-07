@@ -28,9 +28,16 @@ const authorsSlice = createSlice({
 			if (author && !author.books.includes(bookId)) {
 				author.books.push(bookId)
 			}
+		},
+		removeBookFromAuthor(state, action: PayloadAction<{ authorId: string; bookId: string }>) {
+			const { authorId, bookId } = action.payload
+			const author = state.find(author => author.id === authorId)
+			if (author) {
+				author.books = author.books.filter(id => id !== bookId)
+			}
 		}
 	}
 })
 
-export const { addBookToAuthor } = authorsSlice.actions
+export const { addBookToAuthor, removeBookFromAuthor } = authorsSlice.actions
 export default authorsSlice.reducer

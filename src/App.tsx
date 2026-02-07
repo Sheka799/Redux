@@ -8,6 +8,7 @@ import NotFound from './features/errors/NotFound';
 import AddBookPage from './features/library/books/AddBookPage';
 import BookPage from './features/library/books/BookPage';
 import AuthorPage from './features/library/authors/AuthorPage';
+import EditBookPage from './features/library/books/EditBookPage';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
 		{
 			path: "add-book",
 			element: <AddBookPage />
+		},
+		{
+			path: "add-book",
+			element: <AddBookPage />
+		},
+		{
+			path: "edit-book/:id",
+			element: <EditBookPage />
 		},
 		{
 			path: "authors",
